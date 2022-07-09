@@ -117,11 +117,17 @@ const EventInfoPage = () => {
         <Box py={1} />
         <Divider />
         <Box py={2} />
-        <div className="w-full grid grid-cols-5">
+        <div className="w-full grid grid-cols-5 gap-6">
           {followings?.map(
             (following) =>
               following.eventId === id && (
-                <Participant key={following.id} userId={following.userId} />
+                <Participant
+                  key={following.id}
+                  userId={following.userId}
+                  followDateTime={new Date(
+                    following.created_at
+                  ).toLocaleString()}
+                />
               )
           )}
         </div>

@@ -19,9 +19,15 @@ import { addRoot } from "utils/string";
 
 interface Props extends BaseStyle {
   userId?: string;
+  followDateTime?: string;
 }
 
-const Participant: React.FC<Props> = ({ className, style, userId }) => {
+const Participant: React.FC<Props> = ({
+  className,
+  style,
+  userId,
+  followDateTime,
+}) => {
   const [user] = useUser(userId);
 
   return (
@@ -41,12 +47,13 @@ const Participant: React.FC<Props> = ({ className, style, userId }) => {
             <MoreVertIcon />
           </IconButton>
         }
-        title="Shrimp and Chorizo Paella"
-        subheader="September 14, 2016"
+        title={user?.username}
+        subheader={followDateTime}
       />
       <CardMedia
         component="img"
-        height="194"
+        // height="194"
+        style={{ height: "194px" }}
         image={addRoot(user?.avatar.url)}
         alt="Paella dish"
       />
