@@ -9,6 +9,8 @@ import Previewer from "components/Previewer";
 import { useState } from "react";
 import { Box, Typography } from "@mui/material";
 import useTrees from "hooks/useTress";
+import Slider from "components/Slider";
+import LandingLayout from "layouts/LandingLayout";
 
 const Home: NextPage = () => {
   const [ids, setIds] = useState(["1", "2", "3", "4", "5"]);
@@ -17,31 +19,22 @@ const Home: NextPage = () => {
   console.log(trees);
 
   return (
-    <ClientLayout>
-      <Typography variant="h6" className="font-bold">
-        Rise
-      </Typography>
-      <Box py={1} />
-      <div className="flex">
-        {ids.map((id) => (
-          <Previewer className="mx-2" key={`1-${id}`} />
-        ))}
+    <LandingLayout>
+      <div className="w-full" style={{ height: "calc(100vh - 80px)" }}>
+        <div className="grid grid-cols-2 h-full">
+          <div className="col-span-1 flex flex-col justify-center h-full">
+            <Typography variant="h4" className="font-bold">
+              Start your Dream Team
+            </Typography>
+            <Box py={2} />
+            <Typography variant="h4" className="font-bold">
+              Find Great Teammates!
+            </Typography>
+          </div>
+          <div className="col-span-1">asd</div>
+        </div>
       </div>
-
-      <Box py={4} />
-
-      <Typography variant="h6" className="font-bold">
-        DevMountian
-      </Typography>
-      <Box py={1} />
-      <div className="flex">
-        {ids.map((id) => (
-          <Previewer className="mx-2" key={`2-${id}`} />
-        ))}
-      </div>
-
-      <Box py={4} />
-    </ClientLayout>
+    </LandingLayout>
   );
 };
 

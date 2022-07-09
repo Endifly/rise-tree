@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { CSSProperties, ReactNode } from "react";
 
 export interface BaseChildren {
   children: JSX.Element | ReactNode;

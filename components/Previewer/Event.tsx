@@ -15,6 +15,7 @@ import { BaseStyle } from "types/style";
 import React from "react";
 
 interface Props extends BaseStyle {
+  size: 1 | 2 | 3 | 4;
   avatar?: string;
   title?: string;
   date?: string;
@@ -22,14 +23,14 @@ interface Props extends BaseStyle {
   shortDesc?: string;
 }
 
-const Previewer: React.FC<Props> = ({
+const Event: React.FC<Props> = ({
+  size,
   className,
   style,
-  avatar,
+  title,
   date,
   imgSrc,
   shortDesc,
-  title,
 }) => {
   return (
     <Card
@@ -76,4 +77,4 @@ const Previewer: React.FC<Props> = ({
   );
 };
 
-export default Previewer;
+export default Event;

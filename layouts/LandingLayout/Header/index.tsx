@@ -7,22 +7,13 @@ import {
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import ForumIcon from "@mui/icons-material/Forum";
-import LoginModal from "components/Modal/LoginModal";
-import { useState } from "react";
 
 const Header = () => {
-  const [open, setOpen] = useState(false);
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
   return (
     <div
       style={{ height: 64 }}
       className="w-full flex items-center justify-between pt-8"
     >
-      <LoginModal open={open} handleClose={handleClose} />
       <Typography variant="h4" className="font-bold">
         Medusa
       </Typography>
@@ -59,7 +50,6 @@ const Header = () => {
             borderColor: "black",
             color: "black",
           }}
-          onClick={() => setOpen(true)}
         >
           sign in
         </Button>
