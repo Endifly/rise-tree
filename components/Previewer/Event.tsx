@@ -1,5 +1,6 @@
 import {
   Avatar,
+  Box,
   Card,
   CardActions,
   CardContent,
@@ -13,9 +14,11 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import { BaseStyle } from "types/style";
 import React from "react";
+import { useRouter } from "next/router";
 
 interface Props extends BaseStyle {
-  size: 1 | 2 | 3 | 4;
+  size?: 1 | 2 | 3 | 4;
+  id?: number;
   avatar?: string;
   title?: string;
   date?: string;
@@ -24,45 +27,43 @@ interface Props extends BaseStyle {
 }
 
 const Event: React.FC<Props> = ({
-  size,
+  size = 1,
   className,
+  id,
   style,
   title,
   date,
   imgSrc,
   shortDesc,
 }) => {
+  const router = useRouter();
+
+  // col-span-1
+  // col-span-2
+  // col-span-3
+  // col-span-4
   return (
     <Card
       // sx={{ maxWidth: 345 }}
-      className={`rounded-xl ${className}`}
-      style={style}
+      className={`rounded-3xl ${className} hover:scale-105 col-span-${size}`}
+      style={{ ...style, transition: "all 0.2s ease-in-out" }}
     >
-      <CardHeader
-        avatar={
-          <Avatar sx={{ bgcolor: "red" }} aria-label="recipe">
-            R
-          </Avatar>
-        }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
-        title="Shrimp and Chorizo Paella"
-        subheader="September 14, 2016"
-      />
       <CardMedia
         component="img"
-        height="194"
-        image="https://img.freepik.com/free-photo/portrait-young-asia-lady-with-positive-expression-arms-crossed-smile-broadly-dressed-casual-clothing-looking-camera-pink-background_7861-3201.jpg?t=st=1657291876~exp=1657292476~hmac=9fe88bccc380e3afb1133d71c782b4205085752b740d734186e382523b472b91&w=1380"
+        // height="194"
+        className="cursor-pointer"
+        image={imgSrc}
         alt="Paella dish"
+        style={{ height: 256 }}
+        onClick={() => router.push(`/event/${id}`)}
       />
       <CardContent>
+        <Typography variant="h6" color="text.primary" className="font-bold">
+          {title}
+        </Typography>
+        <Box pt={1} />
         <Typography variant="body2" color="text.secondary">
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the
-          mussels, if you like.
+          {shortDesc}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>

@@ -16,22 +16,14 @@ interface EventType {
   banner: BannerType;
 }
 
-function useEvents(): [Array<EventType> | undefined, () => void] {
-  const [data, setData] = useState<Array<EventType>>();
+function useEvent(id: string): [EventType | undefined, () => void] {
+  const [data, setData] = useState<EventType>();
 
   const fetch = useCallback(async () => {
-    const _data: Array<EventType> = await contentService.events();
-    _data.sort((a, b) => {
-      const dA = new Date(a.created_at);
-      const dB = new Date(b.created_at);
-
-      // return dA.getTime() > dB.getTime();
-      if (dA.getTime() > dB.getTime()) return 1;
-      if (dA.getTime() < dB.getTime()) return -1;
-      return 0;
-    });
+    console.log(id);
+    const _data: EventType = await contentService.event(id);
     setData(_data);
-  }, []);
+  }, [id]);
 
   useEffect(() => {
     fetch();
@@ -40,4 +32,4 @@ function useEvents(): [Array<EventType> | undefined, () => void] {
   return [data, fetch];
 }
 
-export default useEvents;
+export default useEvent;

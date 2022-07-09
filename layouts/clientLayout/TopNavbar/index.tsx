@@ -58,11 +58,17 @@ const TopNavbar = () => {
         <Tab label="Upcomming ..." {...a11yProps(0)} />
         <Tab label="Forum" {...a11yProps(1)} />
       </Tabs> */}
-      <Typography className="font-bold cursor-pointer">#Upcomming</Typography>
+      <Button variant="text" href="/event" className="px-0">
+        <Typography className="font-bold cursor-pointer" color="black">
+          Upcomming
+        </Typography>
+      </Button>
       <Box px={2} />
-      <Typography className="font-bold cursor-pointer" color="GrayText">
-        #Popular
-      </Typography>
+      <Button variant="text" href="/forum">
+        <Typography className="font-bold cursor-pointer" color="GrayText">
+          Forum
+        </Typography>
+      </Button>
     </div>
   );
 };
