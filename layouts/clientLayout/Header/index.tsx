@@ -58,7 +58,7 @@ const Header = () => {
           }}
           href="/forum"
         >
-          <ForumIcon fontSize="16px" />
+          <ForumIcon />
           <Box px={1} />
           <Typography>forum</Typography>
         </Button>
