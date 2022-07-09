@@ -1,5 +1,6 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, Divider, Typography } from "@mui/material";
 import LoginModal from "components/Modal/LoginModal";
+import Participant from "components/Previewer/Participant";
 import useEvent from "hooks/useEvent";
 import useFollowings from "hooks/useFollowings";
 import useProfile from "hooks/useProfile";
@@ -83,35 +84,48 @@ const EventInfoPage = () => {
 
   return (
     <ClientLayout>
-      <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-8">
-        <LoginModal open={openAuth} handleClose={() => setOpenAuth(false)} />
-        <div
-          style={{ maxHeight: 256 }}
-          className="flex justify-center items-center"
-        >
-          <img
-            src={addRoot(event?.banner?.url)}
-            style={{ height: "100%" }}
-            className="rounded-xl"
-            alt="medusa"
-          />
+      <div>
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-8">
+          <LoginModal open={openAuth} handleClose={() => setOpenAuth(false)} />
+          <div
+            style={{ maxHeight: 256 }}
+            className="flex justify-center items-center"
+          >
+            <img
+              src={addRoot(event?.banner?.url)}
+              style={{ height: "100%" }}
+              className="rounded-xl"
+              alt="medusa"
+            />
+          </div>
+          <div className="flex flex-col">
+            <Typography variant="h4" className="font-bold">
+              {event?.title}
+            </Typography>
+
+            <Box pt={1} />
+
+            <Typography variant="subtitle2">
+              {event?.longDesc || event?.shortDesc}
+            </Typography>
+
+            <Box pt={2} />
+
+            {JoiningButton()}
+          </div>
         </div>
-
-        <div className="flex flex-col">
-          <Typography variant="h4" className="font-bold">
-            {event?.title}
-          </Typography>
-
-          <Box pt={1} />
-
-          <Typography variant="subtitle2">
-            {event?.longDesc || event?.shortDesc}
-          </Typography>
-
-          <Box pt={2} />
-
-          {JoiningButton()}
+        <Box py={1} />
+        <Divider />
+        <Box py={2} />
+        <div className="w-full grid grid-cols-5">
+          {followings?.map(
+            (following) =>
+              following.eventId === id && (
+                <Participant key={following.id} userId={following.userId} />
+              )
+          )}
         </div>
+        <Box py={8} />
       </div>
     </ClientLayout>
   );
