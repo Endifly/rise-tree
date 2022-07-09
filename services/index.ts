@@ -1,12 +1,15 @@
-import { ProfileType } from "types/content";
+import { FollowingType, ProfileType } from "types/content";
 import {
   getEvent,
   getEvents,
+  getFollowings,
   getLogo,
   getProfile,
   getProfiles,
   getTags,
   getTress,
+  postFollow,
+  postUnfollow,
 } from "./content";
 
 class ContentService {
@@ -30,6 +33,15 @@ class ContentService {
   }
   async profiles() {
     return (await getProfiles()) as Array<ProfileType>;
+  }
+  async follow(eventId: string, userId: string) {
+    return await postFollow(eventId, userId);
+  }
+  async unfollow(txId: string) {
+    return await postUnfollow(txId);
+  }
+  async followings() {
+    return (await getFollowings()) as Array<FollowingType>;
   }
 }
 

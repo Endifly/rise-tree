@@ -39,6 +39,13 @@ export interface BannerType {
 
 export type BannerSizeType = 1 | 2 | 3 | 4;
 
+interface BaseProps {
+  created_at: string;
+  id: number;
+  published_at: string;
+  updated_at: string;
+}
+
 export interface ProfileType {
   avatar: ImageType;
   created_at: string;
@@ -48,4 +55,9 @@ export interface ProfileType {
   tags: Array<string>;
   updated_at: string;
   username: string;
+}
+
+export interface FollowingType extends BaseProps {
+  eventId: string;
+  userId: string;
 }

@@ -20,7 +20,7 @@ function useEvent(id: string): [EventType | undefined, () => void] {
   const [data, setData] = useState<EventType>();
 
   const fetch = useCallback(async () => {
-    console.log(id);
+    if (!id) return;
     const _data: EventType = await contentService.event(id);
     setData(_data);
   }, [id]);
