@@ -1,3 +1,4 @@
+import { ProfileType } from "types/content";
 import {
   getEvent,
   getEvents,
@@ -25,10 +26,10 @@ class ContentService {
     return await getTags();
   }
   async profile(id: string) {
-    return await getProfile(id);
+    return (await getProfile(id)) as ProfileType;
   }
   async profiles() {
-    return await getProfiles();
+    return (await getProfiles()) as Array<ProfileType>;
   }
 }
 

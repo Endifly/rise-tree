@@ -10,6 +10,7 @@ import {
 import { TransitionProps } from "@mui/material/transitions";
 import { Box } from "@mui/system";
 import useLogo from "hooks/useLogo";
+import useProfile from "hooks/useProfile";
 import React, { useState } from "react";
 import contentService from "services";
 import CreateProfileModal from "../AddProfileModal";
@@ -30,12 +31,38 @@ const Transition = React.forwardRef(function Transition(
 
 const LoginModal: React.FC<Props> = ({ open, handleClose }) => {
   const { loading, logo } = useLogo();
+  const [username, setUsername] = useState("");
   const [openCreateProfile, setOpenCreateProfile] = useState(false);
 
-  const onSubmit = () => {
-    const data = contentService.profiles();
-    console.log(data);
-    setOpenCreateProfile(true);
+  const checkMember = async () => {
+    const profiles = await contentService.profiles();
+    // console.log(data);
+    // setOpenCreateProfile(true);
+    var isFound = false;
+    profiles.forEach((profile) => {
+      if (profile.username === username) {
+        localStorage.setItem("userId", profile.id.toString());
+        isFound = true;
+      }
+    });
+
+    return isFound;
+  };
+
+  const onSubmit = async () => {
+    const isMember = await checkMember();
+    if (!isMember) return setOpenCreateProfile(true);
+    else {
+      handleClose();
+      window.location.reload();
+    }
+  };
+
+  const handleCloseCreateProfile = async () => {
+    const isMember = await checkMember();
+    setOpenCreateProfile(false);
+    handleClose();
+    if (isMember) window.location.reload();
   };
 
   return (
@@ -49,7 +76,8 @@ const LoginModal: React.FC<Props> = ({ open, handleClose }) => {
       <DialogContent>
         <CreateProfileModal
           open={openCreateProfile}
-          handleClose={() => setOpenCreateProfile(false)}
+          handleClose={handleCloseCreateProfile}
+          username={username}
         />
         <Box py={2} />
         <div className="flex justify-center">
@@ -74,7 +102,16 @@ const LoginModal: React.FC<Props> = ({ open, handleClose }) => {
           Form your team now !
         </Typography>
         <Box py={2} />
-        <TextField placeholder="name" fullWidth variant="outlined" />
+        <TextField
+          placeholder="name"
+          fullWidth
+          variant="outlined"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") onSubmit();
+          }}
+        />
         <Box py={2} />
         <Button
           fullWidth

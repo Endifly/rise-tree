@@ -1,6 +1,7 @@
 import {
   Box,
   Button,
+  IconButton,
   InputAdornment,
   TextField,
   Typography,
@@ -9,12 +10,21 @@ import SearchIcon from "@mui/icons-material/Search";
 import ForumIcon from "@mui/icons-material/Forum";
 import LoginModal from "components/Modal/LoginModal";
 import { useState } from "react";
+import useProfile from "hooks/useProfile";
+import { addRoot } from "utils/string";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 const Header = () => {
+  const [profile] = useProfile();
   const [open, setOpen] = useState(false);
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const onLogout = () => {
+    localStorage.removeItem("userId");
+    window.location.reload();
   };
 
   return (
@@ -53,16 +63,33 @@ const Header = () => {
           <Typography>forum</Typography>
         </Button>
         <Box px={1} />
-        <Button
-          variant="outlined"
-          style={{
-            borderColor: "black",
-            color: "black",
-          }}
-          onClick={() => setOpen(true)}
-        >
-          sign in
-        </Button>
+        {profile?.id ? (
+          <div
+            style={{ height: 40, width: 40 }}
+            className="rounded-full overflow-hidden"
+          >
+            <img
+              src={addRoot(profile.avatar.url)}
+              style={{ height: "100%", width: "100%" }}
+            />
+          </div>
+        ) : (
+          <Button
+            variant="outlined"
+            style={{
+              borderColor: "black",
+              color: "black",
+            }}
+            onClick={() => setOpen(true)}
+          >
+            sign in
+          </Button>
+        )}
+        {profile?.id && (
+          <IconButton className="ml-4" onClick={onLogout}>
+            <LogoutIcon />
+          </IconButton>
+        )}
       </div>
     </div>
   );

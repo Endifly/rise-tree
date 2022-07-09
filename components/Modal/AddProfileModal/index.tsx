@@ -12,7 +12,7 @@ import { TransitionProps } from "@mui/material/transitions";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { Box } from "@mui/system";
 import useLogo from "hooks/useLogo";
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import ImageIcon from "@mui/icons-material/Image";
 import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
@@ -24,6 +24,7 @@ import useTags from "hooks/useTags";
 interface Props {
   open: boolean;
   handleClose: () => void;
+  username: string;
 }
 
 const Transition = React.forwardRef(function Transition(
@@ -38,17 +39,25 @@ const Transition = React.forwardRef(function Transition(
 const now = new Date();
 const tomorrow = new Date().setDate(now.getDate() + 1);
 
-const CreateProfileModal: React.FC<Props> = ({ open, handleClose }) => {
+const CreateProfileModal: React.FC<Props> = ({
+  open,
+  handleClose,
+  username,
+}) => {
   const { loading, logo } = useLogo();
   const [profileTags] = useTags();
   const theme = useTheme();
-  const [name, setName] = useState("");
+  const [name, setName] = useState(username);
   const [desc, setDesc] = useState("");
   const [banner, setBanner] = useState<File | null>(null);
   const [startAt, setStartAt] = React.useState<Date | null>(new Date());
   const [endAt, setEndAt] = React.useState<Date | null>(new Date(tomorrow));
   const [tags, setTags] = useState<Array<string>>([]);
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
+  useEffect(() => {
+    setName(username);
+  }, [username]);
 
   const onDrop = useCallback((acceptedFiles: File[]) => {
     // Do something with the files
@@ -72,7 +81,7 @@ const CreateProfileModal: React.FC<Props> = ({ open, handleClose }) => {
 
     data["username"] = name;
     data["desc"] = desc;
-    data["tags"] = startAt?.toISOString();
+    data["tags"] = tags;
 
     formData.append("data", JSON.stringify(data));
 
@@ -84,6 +93,18 @@ const CreateProfileModal: React.FC<Props> = ({ open, handleClose }) => {
     });
 
     handleClose();
+  };
+
+  const handleTags = (tag: string) => {
+    if (tags.includes(tag)) {
+      //remove
+      // tags.r
+      let _tags = tags.filter((t) => t !== tag);
+      setTags([..._tags]);
+    } else {
+      tags.push(tag);
+      setTags([...tags]);
+    }
   };
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
@@ -109,7 +130,11 @@ const CreateProfileModal: React.FC<Props> = ({ open, handleClose }) => {
           onClick={() => setBanner(null)}
         >
           <Typography className="font-bold">Avatar ของคุณ</Typography>
-          {banner && <Typography className="font-bold">ลบ</Typography>}
+          {banner && (
+            <Typography className="font-bold" color="error">
+              ลบ
+            </Typography>
+          )}
         </div>
         <div {...getRootProps()}>
           <input {...getInputProps()} />
@@ -138,7 +163,14 @@ const CreateProfileModal: React.FC<Props> = ({ open, handleClose }) => {
         <Typography className="font-bold">อะไรบ่งบอกความเป็นคุณบ้าง</Typography>
         <Box py={1} />
         {profileTags?.tags.map((tag) => (
-          <Chip label={tag} key={tag} variant="outlined" className="mr-2" />
+          <Chip
+            label={tag}
+            key={tag}
+            variant="outlined"
+            className="mr-2"
+            onClick={() => handleTags(tag)}
+            color={tags.includes(tag) ? "primary" : "default"}
+          />
         ))}
 
         {/* <Box py={2} /> */}

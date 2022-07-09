@@ -38,3 +38,14 @@ export interface BannerType {
 }
 
 export type BannerSizeType = 1 | 2 | 3 | 4;
+
+export interface ProfileType {
+  avatar: ImageType;
+  created_at: string;
+  desc: string;
+  id: number;
+  published_at: string;
+  tags: Array<string>;
+  updated_at: string;
+  username: string;
+}
