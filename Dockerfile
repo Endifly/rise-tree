@@ -11,7 +11,7 @@ WORKDIR /build
 COPY package.json /build/package.json
 RUN npm install
 COPY . .
-#RUN npm install react-scripts -g
-RUN npm build
+RUN npm install react-scripts -g
+#RUN npm build
 # start app
 CMD ["npm", "start"]
