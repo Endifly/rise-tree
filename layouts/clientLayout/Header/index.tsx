@@ -13,8 +13,10 @@ import { useState } from "react";
 import useProfile from "hooks/useProfile";
 import { addRoot } from "utils/string";
 import LogoutIcon from "@mui/icons-material/Logout";
+import { useRouter } from "next/router";
 
 const Header = () => {
+  const router = useRouter();
   const [profile] = useProfile();
   const [open, setOpen] = useState(false);
 
@@ -33,7 +35,11 @@ const Header = () => {
       className="w-full flex items-center justify-between pt-8"
     >
       <LoginModal open={open} handleClose={handleClose} />
-      <Typography variant="h4" className="font-bold">
+      <Typography
+        variant="h4"
+        className="font-bold cursor-pointer"
+        onClick={() => router.push("/")}
+      >
         Medusa
       </Typography>
       <TextField
