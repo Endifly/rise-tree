@@ -1,4 +1,12 @@
-import { Box, Button, Tab, Tabs, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Tab,
+  Tabs,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import React from "react";
 
 interface TabPanelProps {

@@ -53,7 +53,7 @@ const Header = () => {
       >
         Medusa
       </Typography>
-      <TextField
+      {/* <TextField
         variant="outlined"
         placeholder="search"
         size="small"
@@ -65,7 +65,7 @@ const Header = () => {
             </InputAdornment>
           ),
         }}
-      />
+      /> */}
       <div className="flex items-center">
         {profile?.id && (
           <IconButton onClick={handleClick}>

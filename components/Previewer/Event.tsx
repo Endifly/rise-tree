@@ -8,6 +8,8 @@ import {
   CardMedia,
   IconButton,
   Typography,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import FavoriteIcon from "@mui/icons-material/Favorite";
@@ -37,6 +39,8 @@ const Event: React.FC<Props> = ({
   shortDesc,
 }) => {
   const router = useRouter();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   // col-span-1
   // col-span-2
@@ -45,7 +49,9 @@ const Event: React.FC<Props> = ({
   return (
     <Card
       // sx={{ maxWidth: 345 }}
-      className={`rounded-3xl ${className} hover:scale-105 col-span-${size}`}
+      className={`rounded-3xl ${className} hover:scale-105 col-span-${
+        isMobile ? 1 : size
+      }`}
       style={{ ...style, transition: "all 0.2s ease-in-out" }}
     >
       <CardMedia
@@ -54,7 +60,7 @@ const Event: React.FC<Props> = ({
         className="cursor-pointer"
         image={imgSrc}
         alt="Paella dish"
-        style={{ height: 256 }}
+        style={{ height: isMobile ? 128 : 256 }}
         onClick={() => router.push(`/event/${id}`)}
       />
       <CardContent>

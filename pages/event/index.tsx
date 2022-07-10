@@ -2,7 +2,13 @@ import type { NextPage } from "next";
 import ClientLayout from "layouts/clientLayout";
 import Previewer from "components/Previewer";
 import { useState } from "react";
-import { Box, Button, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import useTrees from "hooks/useTress";
 import Slider from "components/Slider";
 import useEvents from "hooks/useEvents";
@@ -16,6 +22,8 @@ const EventPage: NextPage = () => {
   const [openCreateEvent, setOpenCreateEvent] = useState(false);
   const [ids, setIds] = useState(["1", "2", "3", "4", "5"]);
   const [events, refetch] = useEvents();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   // console.log(events?.[0].banner.url);
   // console.log(events);
@@ -37,11 +45,11 @@ const EventPage: NextPage = () => {
         <div className="flex flex-1" />
         <Button onClick={() => setOpenCreateEvent(true)} variant="outlined">
           <AddIcon />
-          เพิ่ม Event ของคุณ
+          {isMobile ? `` : `เพิ่ม Event ของคุณ`}
         </Button>
       </div>
       <Box py={1} />
-      <div className="grid grid-cols-4 gap-12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-12">
         {events?.map((event) => (
           <Event
             className=""

@@ -27,9 +27,9 @@ const InfoPage = () => {
 
   return (
     <ClientLayout>
-      <div className="grid grid-cols-5 gap-4 ">
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-4 ">
         <div className="col-span-1 ">
-          <div className="w-full">
+          <div className="w-full rounded-xl overflow-hidden">
             <img src={addRoot(user?.avatar.url)} className="h-full w-full" />
           </div>
 

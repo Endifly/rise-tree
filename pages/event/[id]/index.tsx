@@ -117,7 +117,7 @@ const EventInfoPage = () => {
         <Box py={1} />
         <Divider />
         <Box py={2} />
-        <div className="w-full grid grid-cols-5 gap-6">
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {followings?.map(
             (following) =>
               following.eventId === id && (
