@@ -52,6 +52,24 @@ const InfoPage = () => {
               <Chip label={tag} key={tag} className="mr-2" />
             ))}
           </Typography>
+
+          <Box py={1} />
+
+          <Typography variant="subtitle1" color="GrayText">
+            role
+          </Typography>
+          <Typography variant="h6" className="font-bold">
+            student
+          </Typography>
+
+          <Box py={1} />
+
+          <Typography variant="subtitle1" color="GrayText">
+            skill
+          </Typography>
+          <Typography variant="h6" className="font-bold">
+            python, react, golang
+          </Typography>
         </div>
         <div className="col-span-4">
           <Typography variant="h6" className="font-bold">
