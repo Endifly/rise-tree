@@ -1,5 +1,6 @@
 import {
   Avatar,
+  Button,
   Card,
   CardActions,
   CardContent,
@@ -11,7 +12,7 @@ import {
 } from "@mui/material";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import ShareIcon from "@mui/icons-material/Share";
+import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import { BaseStyle } from "types/style";
 import React from "react";
 import useUser from "hooks/userUser";
@@ -30,6 +31,8 @@ const Participant: React.FC<Props> = ({
 }) => {
   const [user] = useUser(userId);
 
+  const onOpenDetail = () => {};
+
   return (
     <Card
       // sx={{ maxWidth: 345 }}
@@ -43,8 +46,12 @@ const Participant: React.FC<Props> = ({
           </Avatar>
         }
         action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
+          <IconButton
+            aria-label="settings"
+            href={`/info/${user?.id}`}
+            target="_blank"
+          >
+            <InfoOutlinedIcon />
           </IconButton>
         }
         title={user?.username}
@@ -66,9 +73,12 @@ const Participant: React.FC<Props> = ({
         <IconButton aria-label="add to favorites">
           <FavoriteIcon />
         </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
+        <div className="flex-1" />
+        <Button variant="outlined">
+          <Typography className="font-bold" color="GrayText">
+            JOIN
+          </Typography>
+        </Button>
       </CardActions>
     </Card>
   );

@@ -3,22 +3,25 @@ import {
   Button,
   IconButton,
   InputAdornment,
+  Popper,
   TextField,
   Typography,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import ForumIcon from "@mui/icons-material/Forum";
 import LoginModal from "components/Modal/LoginModal";
-import { useState } from "react";
+import React, { useState } from "react";
 import useProfile from "hooks/useProfile";
 import { addRoot } from "utils/string";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { useRouter } from "next/router";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 
 const Header = () => {
   const router = useRouter();
   const [profile] = useProfile();
   const [open, setOpen] = useState(false);
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
   const handleClose = () => {
     setOpen(false);
@@ -27,6 +30,14 @@ const Header = () => {
   const onLogout = () => {
     localStorage.removeItem("userId");
     window.location.reload();
+  };
+
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(anchorEl ? null : event.currentTarget);
+  };
+
+  const onOpenDetail = (id: string) => {
+    router.push(`/info/${id}`);
   };
 
   return (
@@ -56,23 +67,33 @@ const Header = () => {
         }}
       />
       <div className="flex items-center">
-        <Button
-          variant="text"
-          style={{
-            borderColor: "black",
-            color: "black",
-          }}
-          href="/forum"
+        {profile?.id && (
+          <IconButton onClick={handleClick}>
+            <CalendarMonthIcon />
+          </IconButton>
+        )}
+        <Popper
+          open={Boolean(anchorEl)}
+          anchorEl={anchorEl}
+          placement="bottom-end"
         >
-          <ForumIcon />
-          <Box px={1} />
-          <Typography>forum</Typography>
-        </Button>
+          <Box sx={{ border: 1, p: 1, bgcolor: "background.paper" }}>
+            <img
+              style={{
+                maxWidth: 512,
+              }}
+              src={
+                "https://content.tanakorn.space/uploads/calendar_d3db6d95e0.png?1285563.600000143"
+              }
+            />
+          </Box>
+        </Popper>
         <Box px={1} />
         {profile?.id ? (
           <div
             style={{ height: 40, width: 40 }}
-            className="rounded-full overflow-hidden"
+            className="rounded-full overflow-hidden cursor-pointer"
+            onClick={() => onOpenDetail(profile.id.toString())}
           >
             <img
               src={addRoot(profile.avatar.url)}

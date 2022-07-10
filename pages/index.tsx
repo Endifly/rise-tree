@@ -45,7 +45,7 @@ const Home: NextPage = () => {
         <Lottie options={defaultOptions} height={256} width={256} />
         <Box py={3} />
         <Typography variant="h4" className="font-bold" align="center">
-          Start your Dream Team
+          Build your dream
         </Typography>
         <Box py={3} />
         {/* <Typography variant="h4" className="font-bold" align="center">

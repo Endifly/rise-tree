@@ -1,0 +1,377 @@
+make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 3.81
+ 
+# Copyright (C) 2006  Free Software Foundation, Inc.
+# This is free software; see the source for copying conditions.
+# There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.
+
+# This program built for i686-pc-msys
+ 
+make.exe: *** No rule to make target `all'.  Stop.
+
+
+# Make data base, printed on Sun Jul 10 09:27:35 2022
+
+# Variables
+
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# automatic
+?F = $(notdir $?)
+ 
+# environment
+ELECTRON_NO_ATTACH_CONSOLE = 1
+# makefile
+MAKEFLAGS = Rrqp
+# environment
+LC_CTYPE = en_US.UTF-8
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# environment
+HOMEDRIVE = C:
+# automatic
+@F = $(notdir $@)
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# makefile
+CURDIR := /d/dev/rise/rise-tree
+# makefile
+SHELL = /bin/sh
+# environment
+CONFIG_SITE = C:/Program Files/Git/etc/config.site
+# environment
+WINDIR = C:\WINDOWS
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
+# environment
+_ = C:/Users/msi/AppData/Local/Programs/Microsoft VS Code/Code.exe
+# environment
+ONEDRIVE = C:\Users\msi\OneDrive
+# environment
+ZES_ENABLE_SYSMAN = 1
+# environment
+PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW
+# makefile (from `Makefile', line 1)
+MAKEFILE_LIST :=  Makefile
+# environment
+TMP = /tmp
+# environment
+PROGRAMW6432 = C:\Program Files
+# environment
+INFOPATH = C:\Program Files\Git\usr\local\info;C:\Program Files\Git\usr\share\info;C:\Program Files\Git\usr\info;C:\Program Files\Git\share\info
+# environment
+PROGRAMDATA = C:\ProgramData
+# environment
+MSYSTEM_CHOST = x86_64-w64-mingw32
+# environment
+VSCODE_CWD = D:\dev\rise\rise-tree
+# environment
+PATH = /c/Users/msi/bin:/c/Program Files/Git/mingw64/bin:/c/Program Files/Git/usr/local/bin:/c/Program Files/Git/usr/bin:/c/Program Files/Git/usr/bin:/c/Program Files/Git/mingw64/bin:/c/Program Files/Git/usr/bin:/c/Users/msi/bin:/c/Program Files/Microsoft/jdk-11.0.12.7-hotspot/bin:/c/Windows/system32:/c/Windows:/c/Windows/System32/Wbem:/c/Windows/System32/WindowsPowerShell/v1.0:/c/Windows/System32/OpenSSH:/c/Program Files/Docker/Docker/resources/bin:/c/ProgramData/DockerDesktop/version-bin:/c/Program Files/nodejs:/c/ProgramData/chocolatey/bin:/c/Program Files/Git/cmd:/c/Users/msi/AppData/Local/Programs/Python/Python38:/c/Users/msi/AppData/Local/Programs/Python/Python38/Scripts:/c/Python310:/c/Python310/Scripts:/c/Program Files/Microsoft SQL Server/150/Tools/Binn:/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn:/c/Program Files/dotnet:/c/Program Files/Settrade VBA SDK:/c/Program Files/Settrade VBA SDK/Ribbon/bin:/c/WINDOWS/system32:/c/WINDOWS:/c/WINDOWS/System32/Wbem:/c/WINDOWS/System32/WindowsPowerShell/v1.0:/c/WINDOWS/System32/OpenSSH:/c/Program Files (x86)/Go/bin:/usr/bin:/d/program/protoc-21.2-win64/bin:/c/Users/msi/AppData/Local/Microsoft/WindowsApps:/c/Users/msi/AppData/Roaming/npm:/c/Users/msi/AppData/Local/Programs/Microsoft VS Code/bin:/c/Users/msi/.dotnet/tools:/c/Users/msi/go/bin:/c/Program Files/Git/usr/bin/vendor_perl:/c/Program Files/Git/usr/bin/core_perl
+# environment
+COMMONPROGRAMW6432 = C:\Program Files\Common Files
+# environment
+TERM_PROGRAM_VERSION = 3.6.1
+# environment
+CHOCOLATEYLASTPATHUPDATE = 132994251348820043
+# environment
+PROCESSOR_ARCHITECTURE = x86
+# environment
+USERPROFILE = C:\Users\msi
+# environment
+CHOCOLATEYINSTALL = C:\ProgramData\chocolatey
+# environment
+MSYSTEM_CARCH = x86_64
+# environment
+EXEPATH = C:\Program Files\Git
+# environment
+ALLUSERSPROFILE = C:\ProgramData
+# environment
+GOPATH = C:\Users\msi\go
+# environment
+PLINK_PROTOCOL = ssh
+# environment
+MSYSTEM_PREFIX = C:/Program Files/Git/mingw64
+# environment
+NUMBER_OF_PROCESSORS = 12
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+ORIGINAL_TEMP = C:/Users/msi/AppData/Local/Temp
+# default
+.FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
+# environment
+SSH_AUTH_SOCK = C:/Users/msi/AppData/Local/Temp/ssh-D8Yb9RgFr5H5/agent.6152
+# automatic
+%F = $(notdir $%)
+# environment
+DISPLAY = needs-to-be-defined
+# environment
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_28412_MOQILKUIMUSFVLZC
+# environment
+ORIGINAL_PATH = C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\msi\bin;C:\Program Files\Microsoft\jdk-11.0.12.7-hotspot\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\nodejs;C:\ProgramData\chocolatey\bin;C:\Program Files\Git\cmd;C:\Users\msi\AppData\Local\Programs\Python\Python38;C:\Users\msi\AppData\Local\Programs\Python\Python38\Scripts;C:\Python310;C:\Python310\Scripts;C:\Program Files\Microsoft SQL Server\150\Tools\Binn;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn;C:\Program Files\dotnet;C:\Program Files\Settrade VBA SDK;C:\Program Files\Settrade VBA SDK\Ribbon\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files (x86)\Go\bin;D:\program\MinGW\msys\1.0\bin;D:\program\protoc-21.2-win64\bin;C:\Users\msi\AppData\Local\Microsoft\WindowsApps;C:\Users\msi\AppData\Roaming\npm;C:\Users\msi\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\msi\.dotnet\tools;C:\Users\msi\go\bin
+# environment
+COMPUTERNAME = DESKTOP-OUA72Q3
+# environment
+PWD = D:/dev/rise/rise-tree
+# environment
+PROGRAMFILES = C:\Program Files (x86)
+# environment
+DRIVERDATA = C:\Windows\System32\Drivers\DriverData
+# environment
+SSH_AGENT_PID = 6153
+# environment
+PKG_CONFIG_PATH = C:\Program Files\Git\mingw64\lib\pkgconfig;C:\Program Files\Git\mingw64\share\pkgconfig
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = undefined
+# environment
+USERNAME = msi
+# environment
+PUBLIC = C:\Users\Public
+# environment
+MANPATH = C:\Program Files\Git\mingw64\local\man;C:\Program Files\Git\mingw64\share\man;C:\Program Files\Git\usr\local\man;C:\Program Files\Git\usr\share\man;C:\Program Files\Git\usr\man;C:\Program Files\Git\share\man
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /c/Users/msi
+# environment
+VSCODE_CLI = 1
+# environment
+VSCODE_CODE_CACHE_PATH = C:\Users\msi\AppData\Roaming\Code\CachedData\92d25e35d9bf1a6b16f7d0758f25d48ace11e5b9
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+# environment
+COMMONPROGRAMFILES = C:\Program Files (x86)\Common Files
+# environment
+LOGONSERVER = \\DESKTOP-OUA72Q3
+# environment
+ONEDRIVECONSUMER = C:\Users\msi\OneDrive
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# environment
+USERDOMAIN = DESKTOP-OUA72Q3
+# environment
+HOSTNAME = DESKTOP-OUA72Q3
+# environment
+SSH_ASKPASS = C:/Program Files/Git/mingw64/bin/git-askpass.exe
+# default
+MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
+# environment
+!D: = d:\dev\rise\rise-tree
+# environment
+SHLVL = 2
+# environment
+ACLOCAL_PATH = C:\Program Files\Git\mingw64\share\aclocal;C:\Program Files\Git\usr\share\aclocal
+# default
+MAKE_VERSION := 3.81
+# environment
+MINGW_CHOST = x86_64-w64-mingw32
+# makefile
+.DEFAULT_GOAL := echo
+# environment
+PROGRAMFILES(X86) = C:\Program Files (x86)
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# environment
+LOCALAPPDATA = C:\Users\msi\AppData\Local
+# environment
+PSMODULEPATH = C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules
+# default
+MAKE_COMMAND := make.exe
+# environment
+PROCESSOR_ARCHITEW6432 = AMD64
+# environment
+OLDPWD = D:/dev/rise
+# environment
+TERM_PROGRAM = mintty
+# default
+.VARIABLES := 
+# environment
+TMPDIR = /tmp
+ 
+# automatic
+*F = $(notdir $*)
+# environment
+PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 158 Stepping 10, GenuineIntel
+# environment
+OS = Windows_NT
+# environment
+VSCODE_IPC_HOOK = \\.\pipe\190be8d84b07f3ce96be695725a8dd67-1.69.0-main-sock
+# environment
+HOMEPATH = \
+# environment
+COMMONPROGRAMFILES(X86) = C:\Program Files (x86)\Common Files
+# environment
+PROMPT = $P$G
+# environment
+MFLAGS = -Rrqp
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+ORIGINAL_TMP = C:/Users/msi/AppData/Local/Temp
+# environment
+SYSTEMROOT = C:\WINDOWS
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# environment
+MINGW_PREFIX = C:/Program Files/Git/mingw64
+# automatic
++F = $(notdir $+)
+# environment
+APPDATA = C:\Users\msi\AppData\Roaming
+# environment
+TEMP = /tmp
+# environment
+COMSPEC = C:\WINDOWS\system32\cmd.exe
+# environment
+MSYSTEM = MINGW64
+# default
+MAKEFILES := 
+# automatic
+<F = $(notdir $<)
+# environment
+LC_ALL = C
+# automatic
+^F = $(notdir $^)
+# default
+SUFFIXES := 
+# environment
+SYSTEMDRIVE = C:
+# environment
+SESSIONNAME = Console
+# environment
+PROCESSOR_REVISION = 9e0a
+# environment
+MAKELEVEL := 0
+# environment
+LANG = C
+# environment
+PROCESSOR_LEVEL = 6
+# environment
+TERM = xterm
+# environment
+VSCODE_PID = 28412
+# environment
+MINGW_PACKAGE_PREFIX = mingw-w64-x86_64
+# environment
+USERDOMAIN_ROAMINGPROFILE = DESKTOP-OUA72Q3
+# variable set hash-table stats:
+# Load=121/1024=12%, Rehash=0, Collisions=12/144=8%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device -18382, inode 2904893): 28 files, no impossibilities.
+
+# 28 files, no impossibilities in 1 directories.
+
+# Implicit Rules
+
+# No implicit rules.
+
+# Files
+
+# Not a target:
+all:
+#  Command-line target.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has not been updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+.PHONY: echo build run deploy
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+ 
+#  Last modified 2022-07-10 05:15:46
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+build:
+ 
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 7):
+	#cd stupid-captcha-template ; git pull ;yarn build
+	#cp stupid-captcha-template/dist/widget.min.js client/widget.min.js
+	sudo docker build -t medusa .
+	
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+echo:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 3):
+	@echo echo
+	
+
+run:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 13):
+	make build
+	sudo docker kill medusa || true
+	sudo docker rm medusa || true
+	sudo docker run -it --network stupid-net --name medusa medusa
+	
+
+deploy:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  commands to execute (from `Makefile', line 20):
+	make build
+	sudo docker kill medusa || true
+	sudo docker rm medusa || true
+	sudo docker run -it --network stupid-net -d --name medusa medusa
+	
+
+# files hash-table stats:
+# Load=9/1024=1%, Rehash=0, Collisions=0/27=0%
+# VPATH Search Paths
+
+# No `vpath' search paths.
+
+# No general (`VPATH' variable) search path.
+
+# # of strings in strcache: 1
+# # of strcache buffers: 1
+# strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
+# strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
+
+# Finished Make data base on Sun Jul 10 09:27:35 2022
+
+ 
